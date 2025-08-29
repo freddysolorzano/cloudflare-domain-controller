@@ -1,0 +1,30 @@
+# Binarios
+cloudflare-domain-controller
+dist/
+
+# Archivos de respaldo
+*.bak
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+# Directorios de dependencias
+node_modules/
+
+# Archivos de compilación
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Coverage
+coverage/
