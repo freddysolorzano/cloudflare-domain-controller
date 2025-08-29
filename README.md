@@ -6,6 +6,16 @@ Una herramienta CLI para gestionar registros DNS en Cloudflare de forma rápida 
 
 Cloudflare Domain Controller es una utilidad de línea de comandos desarrollada en Go que permite administrar fácilmente los registros DNS de tu dominio en Cloudflare. Con esta herramienta, puedes agregar, actualizar, eliminar y listar registros DNS sin necesidad de acceder al panel web de Cloudflare.
 
+## Características
+
+- ✅ Agregar registros DNS (A, CNAME, etc.)
+- ✅ Actualizar registros DNS existentes
+- ✅ Eliminar registros DNS
+- ✅ Listar todos los registros DNS de tu dominio
+- ✅ Uso sencillo con comandos intuitivos
+- ✅ Validación de configuración y manejo de errores
+- ✅ Compatible con múltiples plataformas (cross-compilation)
+
 ## Requisitos
 
 - Go 1.24.6 o superior (para compilación)
@@ -14,11 +24,15 @@ Cloudflare Domain Controller es una utilidad de línea de comandos desarrollada 
 
 ## Instalación
 
+### Desde binarios precompilados
+
+Descarga el binario precompilado para tu plataforma desde la sección de [releases](https://github.com/tu-usuario/cloudflare-domain-controller/releases) y colócalo en tu PATH.
+
 ### Desde el código fuente
 
 1. Clona el repositorio:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/tu-usuario/cloudflare-domain-controller.git
    cd cloudflare-domain-controller
    ```
 
@@ -31,10 +45,6 @@ Cloudflare Domain Controller es una utilidad de línea de comandos desarrollada 
    ```bash
    make install
    ```
-
-### Desde binarios precompilados
-
-Descarga el binario precompilado para tu plataforma desde la sección de [releases](https://github.com/tu-usuario/cloudflare-domain-controller/releases) y colócalo en tu PATH.
 
 ## Configuración
 
@@ -167,6 +177,10 @@ go test ./...
 - Nunca commitees tus credenciales en el repositorio git
 - Usa tokens de API con el mínimo de permisos necesarios
 - Considera rotar regularmente tus tokens de API
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir qué te gustaría cambiar.
 
 ## Licencia
 
