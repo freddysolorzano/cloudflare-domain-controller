@@ -148,7 +148,6 @@ Los binarios se guardarán en el directorio `dist/`.
 cloudflare-domain-controller/
 ├── cmd/              # Comandos de la CLI
 ├── core/             # Lógica principal y cliente de Cloudflare
-├── utils/            # Funciones auxiliares
 ├── main.go           # Punto de entrada
 ├── go.mod            # Dependencias del módulo Go
 ├── Makefile          # Scripts de compilación
@@ -167,9 +166,32 @@ go build -o cloudflare-domain-controller .
 
 ### Ejecución de pruebas
 
+El proyecto incluye un conjunto completo de tests unitarios para verificar el funcionamiento de todas las operaciones. Los tests utilizan un servidor HTTP de prueba que simula la API de Cloudflare, permitiendo ejecutarlos sin necesidad de una cuenta real.
+
+Para ejecutar todos los tests del proyecto:
+
 ```bash
 go test ./...
 ```
+
+Para ejecutar los tests con salida detallada:
+
+```bash
+go test -v ./...
+```
+
+Para ejecutar solo los tests del paquete core:
+
+```bash
+go test ./core
+```
+
+Los tests verifican las siguientes operaciones:
+- Crear registros DNS
+- Obtener registros DNS por nombre
+- Actualizar registros DNS existentes
+- Listar todos los registros DNS
+- Eliminar registros DNS
 
 ## Seguridad
 

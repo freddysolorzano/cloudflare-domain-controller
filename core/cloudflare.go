@@ -106,8 +106,29 @@ func (c *CloudflareClient) CreateDNSRecord(record *DNSRecord) error {
 		return err
 	}
 
-	_, err = c.makeRequest("POST", url, bytes.NewBuffer(jsonData))
-	return err
+	respBody, err := c.makeRequest("POST", url, bytes.NewBuffer(jsonData))
+	if err != nil {
+		return err
+	}
+	
+	// Parsear la respuesta para obtener el ID del registro creado
+	var result map[string]interface{}
+	if err := json.Unmarshal(respBody, &result); err != nil {
+		return err
+	}
+	
+	// Verificar si hay resultados
+	resultData, ok := result["result"].(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("no se pudo obtener el registro creado")
+	}
+	
+	// Asignar el ID al registro
+	if id, ok := resultData["id"].(string); ok {
+		record.ID = id
+	}
+	
+	return nil
 }
 
 // UpdateDNSRecord actualiza un registro DNS existente
